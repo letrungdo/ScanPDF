@@ -6,7 +6,6 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using ScanPDF.Model;
-using ScanPDF.Utility;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using System.Collections.Generic;
