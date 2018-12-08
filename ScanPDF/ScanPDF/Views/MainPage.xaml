@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ScanPDF.Views.MainPage"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    xmlns:res="clr-namespace:ScanPDF;assembly=ScanPDF"
+    Title="{Binding Title}">
+    <Grid
+        ColumnSpacing="10"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+        <Grid.RowDefinitions>
+            <RowDefinition
+                Height="*" />
+            <RowDefinition
+                Height="50" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="0.3*" />
+            <ColumnDefinition
+                Width="0.4*" />
+            <ColumnDefinition
+                Width="0.3*" />
+        </Grid.ColumnDefinitions>
+        <Button
+            Grid.Row="1"
+            Grid.Column="1"
+            BackgroundColor="Green"
+            Text="{Binding TextSF}"
+            Command="{Binding SFCommand}" />
+        <Button
+            Grid.Row="1"
+            Grid.Column="2"
+            BackgroundColor="Teal"
+            TextColor="White"
+            Text="{x:Static res:Resources.NextPage}" />
+    </Grid>
+</ContentPage>
