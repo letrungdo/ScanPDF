@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using CarouselView.FormsPlugin.Android;
 using Prism;
 using Prism.Ioc;
 
@@ -17,8 +18,11 @@ namespace ScanPDF.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            CarouselViewRenderer.Init();
             LoadApplication(new App(new AndroidInitializer()));
         }
+
+
     }
 
     public class AndroidInitializer : IPlatformInitializer

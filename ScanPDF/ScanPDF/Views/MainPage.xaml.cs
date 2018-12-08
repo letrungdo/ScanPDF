@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ScanPDF.ViewModels;
 using Xamarin.Forms;
 
 namespace ScanPDF.Views
@@ -12,6 +8,11 @@ namespace ScanPDF.Views
         public MainPage()
         {
             InitializeComponent();
+        }
+
+        void Handle_PositionSelected(object sender, CarouselView.FormsPlugin.Abstractions.PositionSelectedEventArgs e)
+        {
+            //
         }
     }
 }
