@@ -9,6 +9,7 @@
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.1.0.431" />
     <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
     <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
+    <PackageReference Include="Syncfusion.Xamarin.Pdf" Version="16.3.0.36" />
   </ItemGroup>
 
   <ItemGroup>

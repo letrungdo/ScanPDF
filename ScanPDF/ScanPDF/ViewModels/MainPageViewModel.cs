@@ -6,7 +6,10 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using ScanPDF.Model;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -18,6 +21,9 @@ namespace ScanPDF.ViewModels
         public ICommand NextPageCommand { get; set; }
 
         private int TotalPage = 20; // TODO used input
+
+        private string pdfPath = "";
+
         public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
             : base(navigationService, pageDialogService)
         {
@@ -77,7 +83,10 @@ namespace ScanPDF.ViewModels
             else
             {
                 // Finish
+                await CreatePDF();
 
+                await NavigationService.NavigateAsync(nameof(Views.PdfPage),
+                new NavigationParameters($"Source={pdfPath}"));
             }
         }
 
@@ -102,7 +111,7 @@ namespace ScanPDF.ViewModels
             {
                 if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
                 {
-                    await IPageDialogService.DisplayAlertAsync("No Camera", ":( No camera avaialble.", "OK");
+                    await PageDialogService.DisplayAlertAsync("No Camera", ":( No camera avaialble.", "OK");
                     return;
                 }
 
@@ -116,14 +125,52 @@ namespace ScanPDF.ViewModels
                 if (file == null)
                     return;
                 ListImagePage[CurrentPagePosition].ImageSource = file.Path;
+
+
             }
             else
             {
-                await IPageDialogService.DisplayAlertAsync("Permissions Denied", "Unable to take photos.", "OK");
+                await PageDialogService.DisplayAlertAsync("Permissions Denied", "Unable to take photos.", "OK");
                 //On iOS you may want to send your user to the settings screen.
                 //CrossPermissions.Current.OpenAppSettings();
             }
         }
 
+        private async Task CreatePDF()
+        {
+            // Create a new PDF document
+            PdfDocument document = new PdfDocument();
+
+            foreach (var item in ListImagePage)
+            {
+                if (!item.ImageSource.Contains("img"))
+                    continue;
+                //Add a page to the document
+                PdfPage page = document.Pages.Add();
+
+                //Create PDF graphics for the page
+                PdfGraphics graphics = page.Graphics;
+
+                Stream imageStream = File.OpenRead(item.ImageSource);
+
+                //Load the image from the stream 
+                PdfBitmap image = new PdfBitmap(imageStream);
+
+                //Draw the image 
+                graphics.DrawImage(image, 0, 0);
+            }
+
+            MemoryStream stream = new MemoryStream();
+
+            document.Save(stream);
+
+            //Close the document
+            document.Close(true);
+
+            //Save the stream as a file in the device and invoke it for viewing
+            pdfPath = Xamarin.Forms.DependencyService.Get<ISave>().Save(stream);
+
+            await Task.Delay(100);
+        }
     }
 }

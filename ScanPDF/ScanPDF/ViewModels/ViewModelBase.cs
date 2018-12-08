@@ -11,7 +11,7 @@ namespace ScanPDF.ViewModels
     public class ViewModelBase : BindableBase, INavigationAware, IDestructible
     {
         protected INavigationService NavigationService { get; private set; }
-        protected IPageDialogService IPageDialogService { get; private set; }
+        protected IPageDialogService PageDialogService { get; private set; }
 
         private string _title;
         public string Title
@@ -23,7 +23,7 @@ namespace ScanPDF.ViewModels
         public ViewModelBase(INavigationService navigationService, IPageDialogService pageDialogService)
         {
             NavigationService = navigationService;
-            IPageDialogService = pageDialogService;
+            PageDialogService = pageDialogService;
         }
 
         public virtual void OnNavigatedFrom(INavigationParameters parameters)
