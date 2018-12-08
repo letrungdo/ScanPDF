@@ -6,6 +6,7 @@ using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
 using ScanPDF.Model;
+using ScanPDF.Utility;
 using Syncfusion.Pdf;
 using Syncfusion.Pdf.Graphics;
 using System.Collections.Generic;
@@ -157,7 +158,7 @@ namespace ScanPDF.ViewModels
                 PdfBitmap image = new PdfBitmap(imageStream);
 
                 //Draw the image 
-                graphics.DrawImage(image, 0, 0);
+                graphics.DrawImage(image, 0, 0, page.Graphics.ClientSize.Width, page.Graphics.ClientSize.Height);
             }
 
             MemoryStream stream = new MemoryStream();
