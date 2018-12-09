@@ -35,6 +35,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
+    <Folder Include="ControlsRenderer\" />
   </ItemGroup>
   <ProjectExtensions>
     <MonoDevelop>

@@ -16,10 +16,11 @@ namespace ScanPDF.ViewModels
         {
         }
 
-        public override void OnNavigatedTo(INavigationParameters parameters)
+        public override void OnNavigatingTo(INavigationParameters parameters)
         {
-            base.OnNavigatedTo(parameters);
+            base.OnNavigatingTo(parameters);
             WebViewSource = parameters.GetValue<string>("Source");
+
         }
     }
 }
