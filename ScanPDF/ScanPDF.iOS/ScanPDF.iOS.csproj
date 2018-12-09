@@ -175,11 +175,11 @@
     </ImageAsset>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Default-568h@2x.png" />
-    <BundleResource Include="Resources\Default-Portrait.png" />
-    <BundleResource Include="Resources\Default-Portrait@2x.png" />
-    <BundleResource Include="Resources\Default.png" />
-    <BundleResource Include="Resources\Default@2x.png" />
+    <BundleResource Include="Resources\default_pic-568h%402x.png" />
+    <BundleResource Include="Resources\default_pic-Portrait.png" />
+    <BundleResource Include="Resources\default_pic-Portrait%402x.png" />
+    <BundleResource Include="Resources\default_pic.png" />
+    <BundleResource Include="Resources\default_pic%402x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
   </ItemGroup>
   <ItemGroup>

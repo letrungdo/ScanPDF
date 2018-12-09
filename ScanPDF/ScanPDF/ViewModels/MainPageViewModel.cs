@@ -36,7 +36,7 @@ namespace ScanPDF.ViewModels
             {
                 ListImagePage.Add(new ImageItem
                 {
-                    ImageSource = "Default"
+                    ImageSource = "default_pic"
                 });
             }
         }
