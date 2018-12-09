@@ -27,8 +27,8 @@ namespace ScanPDF.ViewModels
         public MainPageViewModel(INavigationService navigationService, IPageDialogService pageDialogService)
             : base(navigationService, pageDialogService)
         {
-            Title = Resources.TitlePDFScan;
-            TextSF = Resources.Start;
+            Title = AppResources.TitlePDFScan;
+            TextSF = AppResources.Start;
             SFCommand = new DelegateCommand(async () => await HandleActionStartFinish());
             NextPageCommand = new DelegateCommand(async () => await HandleNextPage());
             ListImagePage = new List<ImageItem>();
@@ -73,10 +73,10 @@ namespace ScanPDF.ViewModels
 
         private async Task HandleActionStartFinish()
         {
-            if (TextSF.Equals(Resources.Start))
+            if (TextSF.Equals(AppResources.Start))
             {
                 // Start
-                TextSF = Resources.Finish;
+                TextSF = AppResources.Finish;
                 await TaskPhoto();
                 IsVisibleNextPage = true;
             }

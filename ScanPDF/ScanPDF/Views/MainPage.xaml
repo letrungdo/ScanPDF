@@ -59,7 +59,7 @@
             BackgroundColor="Teal"
             TextColor="White"
             IsVisible="{Binding IsVisibleNextPage}"
-            Text="{x:Static res:Resources.NextPage}"
+            Text="{x:Static res:AppResources.NextPage}"
             Command="{Binding NextPageCommand}" />
     </Grid>
 </ContentPage>
