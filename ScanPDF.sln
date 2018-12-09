@@ -68,4 +68,14 @@ Global
 		{88939B90-CBF1-499D-A3EB-58D07CDBBA17}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
 		{88939B90-CBF1-499D-A3EB-58D07CDBBA17}.AppStore|iPhone.Build.0 = AppStore|iPhone
 	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.TextStylePolicy = $1
+		$1.inheritsSet = null
+		$1.scope = application/xml
+		$0.XmlFormattingPolicy = $2
+		$2.DefaultFormat = $3
+		$3.AttributesInNewLine = True
+		$2.scope = application/xml
+	EndGlobalSection
 EndGlobal

@@ -16,7 +16,6 @@
     <EmbeddedResource Update="AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
-      <LogicalName>ScanPDF.AppResources.resources</LogicalName>
     </EmbeddedResource>
     <EmbeddedResource Update="AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
